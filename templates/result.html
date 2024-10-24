@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Processed Video</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Video.js CSS -->
+    <link href="https://vjs.zencdn.net/7.14.3/video-js.css" rel="stylesheet" />
+</head>
+
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+
+    <div class="w-full max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+        <h1 class="text-2xl font-bold mb-4 text-center">Processed Video</h1>
+
+        <div class="mb-6">
+            <h2 class="text-lg font-semibold mb-2">Original Video:</h2>
+            <video controls class="w-full" class="video-js" preload="auto" data-setup="{}">
+                <source src="/static/uploads/{{ original_video }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <div class="mb-6">
+            <h2 class="text-lg font-semibold mb-2">Processed Video:</h2>
+            <!-- Video.js Player -->
+            <video id="my-video" class="video-js vjs-big-play-centered w-full" controls preload="auto" data-setup="{}">
+                <source src="/video/{{ processed_video }}" type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <div class="text-center">
+            <a href="/download/{{ processed_video }}"
+                class="bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600">Download Processed Video</a>
+        </div>
+    </div>
+
+    <!-- Video.js JavaScript -->
+    <script src="https://vjs.zencdn.net/7.14.3/video.min.js"></script>
+</body>
+
+</html>
